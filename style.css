@@ -1,0 +1,56 @@
+body {
+	margin: 0;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	background: black;
+}
+
+.title {
+		/* padding-bottom: 200px; */
+	background: black;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all 1.5s ease;
+	opacity: 1;
+	z-index: 20;
+}
+
+.title h1{
+	font-size: 5em;
+	/* font-family: 'Special Elite', cursive; */
+	color: white;
+	opacity: 80%;
+}
+
+.title h3{
+	font-size: 2em;
+	/* font-family: 'Special Elite', cursive; */
+	opacity: 40%;
+	color: #fff;
+}
+
+.fade {
+		opacity: 0%;
+}
+
+
+#mydiv {
+	position: absolute;
+	z-index: 9;
+	background-color: #f1f1f1;
+	border: 1px solid #d3d3d3;
+	text-align: center;
+}
+
+#mydivheader {
+	padding: 10px;
+	cursor: move;
+	z-index: 10;
+	background-color: #2196F3;
+	color: #fff;
+}
