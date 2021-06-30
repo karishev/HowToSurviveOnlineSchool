@@ -3,6 +3,7 @@ body {
 	overflow-y: hidden;
 	overflow-x: hidden;
 	background-image: url(back.jpg);
+	font-family: 'Special Elite', cursive;
 }
 
 .title {
@@ -24,14 +25,14 @@ body {
 
 h1{
 	font-size: 5em;
-	font-family: 'Special Elite', cursive;
+	/* font-family: 'Special Elite', cursive; */
 	color: #207794;
 	opacity: 80%;
 }
 
 .title h3{
 	font-size: 2em;
-	font-family: 'Special Elite', cursive;
+	/* font-family: 'Special Elite', cursive; */
 	opacity: 40%;
 	color: #207794;
 }
@@ -150,7 +151,7 @@ h1{
 	justify-content: center;
 	transition: all 1.5s ease;
 	opacity: 1;
-	z-index: 19;
+	z-index: 18;
 }
 
 #mutee {
@@ -219,11 +220,10 @@ h1{
 }
 
 .video {
-	top: 0;
-	left: 0;
 	width: 100%;
 	object-fit: fill;
 	/* height: 90vh; */
+	transition: all 1.5s ease;
 }
 
 
@@ -232,18 +232,31 @@ h1{
 	width: 80%;
 	height: 80%;
 	position: relative;
-	margin-left: 5%;
+	margin-left: 10%;
+}
+
+#video-container1 {
+	width: 100vw;
+	height: 100vh;
+	/* background-image: url(back3.jpg); */
+	/* background-size: 100%; */
+	position: fixed;
+	transition: all 1.5s ease;
+	opacity: 1;
+	z-index: 19;
 }
 
 #description {
 	margin-right: 5%;
-	font-size: 2em;
+	font-size: 1.5em;
+	width: 65%;
 
 }
 
 #video-controls {
 	position: absolute;
 	bottom: 0;
+	/* width: 110.8%; */
 	left: 0;
 	right: 0;
 	padding: 5px;

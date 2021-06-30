@@ -1,3 +1,5 @@
+let videostart = document.getElementById('videostart');
+
 document.addEventListener('DOMContentLoaded', () => {
 	let title = document.querySelector('.title');
 	title.addEventListener('click', () => {
@@ -6,10 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		// enableScroll();
 		setTimeout(() => {
 			title.remove();
-			backgroundmusic.play();
-			backgroundmusic.volume = 0.02;
+			videostart.play();
+
+			// backgroundmusic.play();
+			// backgroundmusic.volume = 0.02;
 		}, 1000);
 	})
+})
+
+videostart.addEventListener("timeupdate", () => {
+	if (videostart.ended) {
+		document.getElementById("video-container1").classList.add("fade");
+		videostart.classList.add('fade');
+		setTimeout(() => {
+			document.getElementById("video-container1").remove();
+			
+			// backgroundmusic.play();
+			// backgroundmusic.volume = 0.02;
+		}, 1000);
+	}
 })
 
 // Make the DIV element draggable:
@@ -561,19 +578,24 @@ let mutee = document.getElementById("mutee");
 let unmutee = document.getElementById("unmutee");
 
 
-mutee.addEventListener("click", function() {
+console.log("yes1");
+mutee.addEventListener("click", () => {
 	mutee.style.display = "none";
 	unmutee.style.display = "inline";
 	backgroundmusic.volume = 0;
 	backgroundmusic.pause();
-});
+	console.log("yes2");
+})
 
-unmutee.addEventListener("click", function() {
+// console.log("yes3");
+unmutee.addEventListener("click", () => {
+	// console.log("yes4");
 	mutee.style.display = "inline";
 	unmutee.style.display = "none";
 	backgroundmusic.volume = 0.02;
 	backgroundmusic.play();
-});
+	console.log("yes4");
+})
 
 
 
