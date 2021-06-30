@@ -2,12 +2,13 @@ body {
 	margin: 0;
 	overflow-y: hidden;
 	overflow-x: hidden;
-	background: black;
+	background-image: url(back.jpg);
 }
 
 .title {
-		/* padding-bottom: 200px; */
-	background: black;
+	/* padding-bottom: 200px; */
+	background-image: url(back.jpg);
+	background-size: 100%;
 	width: 100%;
 	height: 100vh;
 	position: fixed;
@@ -20,10 +21,11 @@ body {
 	z-index: 20;
 }
 
-.title h1{
+
+h1{
 	font-size: 5em;
 	/* font-family: 'Special Elite', cursive; */
-	color: white;
+	color: #207794;
 	opacity: 80%;
 }
 
@@ -31,13 +33,27 @@ body {
 	font-size: 2em;
 	/* font-family: 'Special Elite', cursive; */
 	opacity: 40%;
-	color: #fff;
+	color: #207794;
 }
 
 .fade {
-		opacity: 0%;
+	opacity: 0%;
 }
 
+
+#calendar {
+	background: rgb(155, 151, 151);
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all 1.5s ease;
+	opacity: 1;
+	z-index: 10;
+}
 
 #mydiv {
 	position: absolute;
@@ -53,4 +69,308 @@ body {
 	z-index: 10;
 	background-color: #2196F3;
 	color: #fff;
+}
+
+.draggable {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	cursor: move;
+	z-index: 10;
+	width: 120px;
+	height: 120px;
+	background: rgba(102, 228, 186, 0.452);
+	border-radius: 10%;
+	
+  }
+
+.calendargrid {
+	position: relative;
+	height: 80vh;
+	width: 40vw;
+	text-align: center;
+	background: #2196F3;
+	display: flex;
+	justify-content: center;
+}
+
+
+.calendar{
+	background: rgb(255, 255, 255);
+	/* height: 100vh; */
+	width: 20vw;
+}
+
+.calendar__header {
+	/* margin-top: -300px; */
+	display: grid;
+	position: relative;
+	z-index: 10;
+	grid-template-rows: repeat(1, 1fr); 
+	/* grid-auto-rows: 100px; */
+	grid-gap: 70px;
+	align-items: center;
+	text-align: left;
+	border: 1px solid #e1e1e1;
+	/* grid-gap: 15%;  */
+}
+
+.calendar_time {
+	/* border-right: 1px solid #e1e1e1; */
+  	border-top: 1px solid #e1e1e1;
+}
+
+/* 
+.calendar__header {
+  grid-auto-rows: 50px;
+  grid-auto-rows: 100px;
+  align-items: center;
+  text-align: left;
+} */
+
+#div1 {
+	width: 350px;
+	height: 70px;
+	padding: 10px;
+	border: 1px solid #aaaaaa;
+}
+
+
+#choice {
+	background-image: url(back3.jpg);
+	background-size: 100%;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all 1.5s ease;
+	opacity: 1;
+	z-index: 19;
+}
+
+#mutee {
+	color:#207794; 
+	display: inline; 
+	position: absolute; 
+	top: 15px; 
+	right: 15px; 
+	width: 30px; 
+	height: 30px;
+}
+
+#unmutee {
+	color:#207794;
+	display: none; 
+	position: absolute; 
+	top: 15px; 
+	right: 15px; 
+	width: 30px; 
+	height: 30px;
+}
+
+.step1 ,.step2, .step3 {
+	background: #207794;
+	height: 30vh;
+	width: 25vw;
+	border: 1px solid lightblue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 1s ease;
+}
+
+.step1:hover, .step2:hover, .step3:hover {
+	background: #62c0e6;
+	/* animation: rotate 4s; */
+	color: white;	
+}
+
+.step1:hover #closeButton1, .step2:hover #closeButton2, .step3:hover #closeButton3{
+	background: #62c0e6;
+}
+
+/* @keyframes rotate {
+	from {transform: matrix(1, 1, -1, 1, 0, 0);}
+	to {transform: matrix(-1, -1, 1, -1, 0, 0);}
+} */
+
+#clicktowatch {
+	transition: all 1s ease;
+}
+
+#imageee {
+	transition: all 1s ease;
+	width: 80%;
+	height: 80%;
+}
+.steps {
+	height: 80vw;
+	width: 80vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+    align-items: center;
+}
+
+.video {
+	top: 0;
+	left: 0;
+	width: 100%;
+	object-fit: fill;
+	/* height: 90vh; */
+}
+
+
+
+#video-container {
+	width: 80%;
+	height: 80%;
+	position: relative;
+	margin-left: 5%;
+}
+
+#description {
+	margin-right: 5%;
+	font-size: 2em;
+
+}
+
+#video-controls {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 5px;
+	/* padding-bottom: 5px; */
+	opacity: 0;
+	-webkit-transition: opacity .3s;
+	-moz-transition: opacity .3s;
+	-o-transition: opacity .3s;
+	-ms-transition: opacity .3s;
+	transition: opacity .3s;
+	background-image: linear-gradient(bottom, rgb(255, 38, 0) 13%, rgb(202, 47, 0) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(255, 38, 0) 13%, rgb(202, 47, 0) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(255, 38, 0) 13%, rgb(202, 47, 0) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(255, 38, 0) 13%, rgb(202, 47, 0) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(255, 38, 0) 13%, rgb(202, 47, 0) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.13, #373737),
+		color-stop(1, rgb(48, 49, 51))
+	);
+}
+
+#video-container:hover #video-controls {
+	opacity: .9;
+}
+
+button {
+	/* background: rgba(0,0,0,.5); */
+	border: 0;
+	color: #EEE;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.iconify:hover {
+	cursor: pointer;
+}
+
+#seek-bar1, #seek-bar2, #seek-bar3 {
+	width: 100%;
+	margin: 0;
+}
+
+#volume-bar1, #volume-bar2, #volume-bar3 {
+	width: 50%;
+	margin: 0;
+}
+/* 
+#full-screen, #tomute, #muted { width: 24px; height: 24px; }
+*/
+
+#full-screen1, #full-screen2, #full-screen3  {
+	margin-right: 10px;
+}
+
+#play1, #pause1, #play2, #pause2, #play3, #pause3 {
+	margin-right: 10px;
+} 
+
+.check {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+
+
+
+.line {
+	background: lightblue;
+	position: relative;
+	transform-origin: left top 0px;
+	top: 0px;
+	left: 3px;
+	width: 20px;
+	height: 2px;
+	margin-bottom: 4px;
+	border-radius: 4px;
+	margin-top: 13px;
+    margin-left: 11px;
+}
+
+#closeButton1, #closeButton2, #closeButton3{
+	overflow: hidden;
+	transition: all 1s ease;
+	position: absolute;
+	z-index: 2;
+	top: 12%;
+	right: 11%;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: #207794;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+    margin-top: -7px;
+    margin-left: -8px;
+}
+
+
+#closeButton1:hover, #closeButton2:hover, #closeButton3:hover {
+	background-color: rgb(73, 80, 85);
+}
+
+.closeButton {
+	overflow: hidden;
+	position: absolute;
+	z-index: 2;
+	top: 25px;
+	right: 25px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #373737;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+    margin-top: -7px;
+    margin-left: -8px;
+}
+
+
+.closeButton:hover {
+	background-color: rgb(73, 80, 85);
 }

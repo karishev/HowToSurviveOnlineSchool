@@ -4,25 +4,164 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="stylesheet" href="style.css">
 	<title>How to survive online school?</title>
 </head>
 
 <body>
+
+	<audio loop id="backgroundmusic">
+		<source src="background.mp3" type="audio/mpeg">
+	</audio>
+
+
 	<section class="title">
 		<h1>How to survive online school?</h1>
 		<h3>Click anywhere to watch the video</h3>
 	</section>
 
-	<section class="calendar">
-		<div id="mydiv">
-			<!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+
+	<section id="choice"> 
+		<h1 style="font-size: 2em; position: absolute; top: 0;">HOW TO SURVIVE ONLINE SCHOOL</h1>
+		<span class="iconify" onclick="yes()" id="mutee" data-title = "Mute(m)" data-icon="bx-bxs-volume-full"></span>
+		<span class="iconify" onclick="no()" id="unmutee" data-title = "Unmute(k)" data-icon="bx:bxs-volume-mute"></span>
+		<div class="steps">
+			<div class="step1">
+				<p class="words1">Step 1</p>
+				<div class="step1show" id="clicktowatch" style="display: none;" >
+					<section id="video-container">
+						<video class="video" id="video1" preload="metadata" poster="poster.jpeg">
+							<source src="30mff.mp4" type="video/mp4"></source>
+						</video>
+				
+						<div id="video-controls">
+							
+							<input type="range" id="seek-bar1" value="0" style="color: brown;">
+							<div class="check">
+								<div> 
+									<span class="iconify" data-title = "Play(k)" data-icon="akar-icons:play"  id="play1" style="display: inline;"></span>
+									<span class="iconify" data-title = "Pause(k)" data-icon="akar-icons:pause"  id="pause1" style="display: none;"></span>
+									<span class="iconify" data-title = "Mute(m)" data-icon="bx-bxs-volume-full"  id="tomute1" style="display: inline;"></span>
+									<span class="iconify" data-title = "Unmute(k)" data-icon="bx:bxs-volume-mute"  id="muted1" style="display: none;"></span>
+									
+									<input type="range" id="volume-bar1" min="0" max="1" step="0.1" value="1">
+								</div>
+								<span class="iconify" data-icon="bx:bx-fullscreen"  id="full-screen1"></span>
+							</div>
+						</div>
+				
+					</section>
+				</div>
+				<div class="step1show" id="description" style="display: none;">
+					Description of the step we are looking at right now you now right
+				</div>
+				<div class="step1show" id="closeButton1" style="display: none;" >
+					<div class="line" style="transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, 0, 0); top: 0px; left: 3px; transform-origin: left top 0px;"></div>
+					<div class="line" style="transform: matrix(0.7071, -0.7071, 0.7071, 0.7071, 0, 0); top: -1px; left: 3px; transform-origin: left bottom 0px;"></div>
+				</div>
+			</div>
+			<div class="step2">
+				<p class="words2">Step 2</p>
+				<div class="step2show" id="clicktowatch" style="display: none;" >
+					<section id="video-container">
+						<video class="video" id="video2" preload="metadata" poster="poster.jpeg">
+							<source src="parasite.mp4" type="video/mp4"></source>
+						</video>
+				
+						<div id="video-controls">
+							
+							<input type="range" id="seek-bar2" value="0" style="color: brown;">
+							<div class="check">
+								<div> 
+									<span class="iconify" data-title = "Play(k)" data-icon="akar-icons:play"  id="play2" style="display: inline;"></span>
+									<span class="iconify" data-title = "Pause(k)" data-icon="akar-icons:pause"  id="pause2" style="display: none;"></span>
+									<span class="iconify" data-title = "Mute(m)" data-icon="bx-bxs-volume-full"  id="tomute2" style="display: inline;"></span>
+									<span class="iconify" data-title = "Play(k)" data-icon="bx:bxs-volume-mute"  id="muted2" style="display: none;"></span>
+									
+									<input type="range" id="volume-bar2" min="0" max="1" step="0.1" value="1">
+								</div>
+								<span class="iconify" data-icon="bx:bx-fullscreen"  id="full-screen2"></span>
+							</div>
+						</div>
+				
+					</section>
+				</div>
+				<div class="step2show" id="description" style="display: none;">
+					Description of the step we are looking at right now you now right
+				</div>
+				<div class="step2show" id="closeButton2" style="display: none;" >
+					<div class="line" style="transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, 0, 0); top: 0px; left: 3px; transform-origin: left top 0px;"></div>
+					<div class="line" style="transform: matrix(0.7071, -0.7071, 0.7071, 0.7071, 0, 0); top: -1px; left: 3px; transform-origin: left bottom 0px;"></div>
+				</div>
+			</div>
+			<div class="step3">
+				<p class="words3">Step 3</p>
+				<div class="step3show" id="clicktowatch" style="display: none;" >
+					<section id="video-container">
+						<video class="video" id="video3" preload="metadata" poster="poster.jpeg">
+							<source src="30mff.mp4" type="video/mp4"></source>
+						</video>
+				
+						<div id="video-controls">
+							
+							<input type="range" id="seek-bar3" value="0" style="color: brown;">
+							<div class="check">
+								<div> 
+									<span class="iconify" data-title = "Play(k)" data-icon="akar-icons:play"  id="play3" style="display: inline;"></span>
+									<span class="iconify" data-title = "Pause(k)" data-icon="akar-icons:pause"  id="pause3" style="display: none;"></span>
+									<span class="iconify" data-title = "Mute(m)" data-icon="bx-bxs-volume-full"  id="tomute3" style="display: inline;"></span>
+									<span class="iconify" data-title = "Play(k)" data-icon="bx:bxs-volume-mute"  id="muted3" style="display: none;"></span>
+									
+									<input type="range" id="volume-bar3" min="0" max="1" step="0.1" value="1">
+								</div>
+								<span class="iconify" data-icon="bx:bx-fullscreen"  id="full-screen3"></span>
+							</div>
+						</div>
+				
+					</section>
+				</div>
+				<div class="step3show" id="description" style="display: none;">
+					Description of the step we are looking at right now you now right
+				</div>
+				<div class="step3show" id="closeButton3" style="display: none;" >
+					<div class="line" style="transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, 0, 0); top: 0px; left: 3px; transform-origin: left top 0px;"></div>
+					<div class="line" style="transform: matrix(0.7071, -0.7071, 0.7071, 0.7071, 0, 0); top: -1px; left: 3px; transform-origin: left bottom 0px;"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section id="calendar">
+		<div class="draggable">
+			<p>Click here</p>
+		</div>
+
+		<!-- <div class="calendar">
+			<div class="calendar__header">
+			  <div class="calendar_time">9:00</div>
+			  <div class="calendar_time">11:00</div>
+			  <div class="calendar_time">13:00</div>
+			  <div class="calendar_time">15:00</div>
+			  <div class="calendar_time">17:00</div>
+			  <div class="calendar_time">19:00</div>
+			  <div class="calendar_time">21:00</div>
+			</div>
+		</div> -->
+		<div id = "hi" draggable="true" ondragstart="drag(event)">
+			hey thereeee
+		</div>
+		<div id="mydiv" style="display: none;">
 			<div id="mydivheader">Click here to move</div>
 			<p>Move</p>
 			<p>this</p>
 			<p>DIV</p>
 		</div>
+		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		
+		
 	</section>
 
 	<script src="script.js"> </script>
