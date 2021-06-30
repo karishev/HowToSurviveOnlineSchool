@@ -24,14 +24,14 @@ body {
 
 h1{
 	font-size: 5em;
-	/* font-family: 'Special Elite', cursive; */
+	font-family: 'Special Elite', cursive;
 	color: #207794;
 	opacity: 80%;
 }
 
 .title h3{
 	font-size: 2em;
-	/* font-family: 'Special Elite', cursive; */
+	font-family: 'Special Elite', cursive;
 	opacity: 40%;
 	color: #207794;
 }
@@ -182,6 +182,7 @@ h1{
 	justify-content: center;
 	align-items: center;
 	transition: all 1s ease;
+	font-family: 'Special Elite', cursive;
 }
 
 .step1:hover, .step2:hover, .step3:hover {

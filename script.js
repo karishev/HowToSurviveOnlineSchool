@@ -561,21 +561,20 @@ let mutee = document.getElementById("mutee");
 let unmutee = document.getElementById("unmutee");
 
 
-
-function yes() {	
+mutee.addEventListener("click", function() {
 	mutee.style.display = "none";
 	unmutee.style.display = "inline";
 	backgroundmusic.volume = 0;
 	backgroundmusic.pause();
-}
+});
 
-function no() {
+unmutee.addEventListener("click", function() {
 	mutee.style.display = "inline";
 	unmutee.style.display = "none";
 	backgroundmusic.volume = 0.02;
 	backgroundmusic.play();
+});
 
-}
 
 
 
@@ -662,6 +661,8 @@ closeButton1.addEventListener('click', function() {
 	backgroundmusic.load();
 	backgroundmusic.play();
 	backgroundmusic.volume = 0.02;
+	mutee.style.display = "inline";
+	unmutee.style.display = "none";
 })
 
 step2.addEventListener('click', function() {
@@ -733,7 +734,8 @@ closeButton2.addEventListener('click', function() {
 	backgroundmusic.load();
 	backgroundmusic.play();
 	backgroundmusic.volume = 0.02;
-	
+	mutee.style.display = "inline";
+	unmutee.style.display = "none";
 })
 
 step3.addEventListener('click', function() {
@@ -805,6 +807,7 @@ closeButton3.addEventListener('click', function() {
 	backgroundmusic.load();
 	backgroundmusic.play();
 	backgroundmusic.volume = 0.02;
-	
+	mutee.style.display = "inline";
+	unmutee.style.display = "none";
 })
 
