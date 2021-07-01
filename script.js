@@ -30,7 +30,6 @@ videostart.addEventListener("timeupdate", () => {
 })
 
 
-
 const tasksListElement = document.querySelector(`.tasks__list`);
 const taskElements = tasksListElement.querySelectorAll(`.tasks__item`);
 
@@ -129,6 +128,8 @@ window.onload = function() {
 	var video2 = document.getElementById("video2");
 	var video3 = document.getElementById("video3");
 
+	
+
 	// Buttons
 	var playButton1 = document.getElementById("play1");
 	var pauseButton1 = document.getElementById('pause1');
@@ -154,6 +155,17 @@ window.onload = function() {
 	var volumeBar2 = document.getElementById("volume-bar2");
 	var seekBar3 = document.getElementById("seek-bar3");
 	var volumeBar3 = document.getElementById("volume-bar3");
+
+	// var videolast = document.getElementById("videolast");
+	
+	// var playButtonlast = document.getElementById("playlast");
+	// var pauseButtonlast = document.getElementById('pauselast');
+	// var muteButtonlast = document.getElementById("tomutelast");
+	// var unmuteButtonlast = document.getElementById("mutedlast");
+	// var fullScreenButtonlast = document.getElementById("full-screenlast");
+
+	// var seekBarlast = document.getElementById("seek-barlast");
+	// var volumeBarlast = document.getElementById("volume-barlast");
 
 
 	// Event listener for the play/pause button
@@ -528,9 +540,138 @@ window.onload = function() {
 		}
 	});
 
+
+
+
+
+	// // Event listener for the play/pause button 3333
+	// playButtonlast.addEventListener("click", function() {
+	// 	if (videolast.paused == true ) {
+	// 		// Play the videolast
+	// 		videolast.play();
+
+	// 		// Update the button text to 'Pause'
+	// 		playButtonlast.style.display = "none";
+	// 		pauseButtonlast.style.display = "inline";
+	// 	}
+	// });
 	
+
+	// pauseButtonlast.addEventListener("click", function() {
+	// 	if (videolast.paused == false) {
+	// 		videolast.pause();
+
+	// 		playButtonlast.style.display = "inline";
+	// 		pauseButtonlast.style.display = "none";
+	// 	}
+	// });
+
+	// videolast.addEventListener("click", function() {
+	// 	if (videolast.paused == false) {
+	// 		videolast.pause();
+
+	// 		playButtonlast.style.display = "inline";
+	// 		pauseButtonlast.style.display = "none";
+	// 	}
+	// 	else if (videolast.paused == true ) {
+	// 		// Play the videolast
+	// 		videolast.play();
+
+	// 		// Update the button text to 'Pause'
+	// 		playButtonlast.style.display = "none";
+	// 		pauseButtonlast.style.display = "inline";
+	// 	}
+	// });
+
+
+	// // Event listener for the mute button
+	// muteButtonlast.addEventListener("click", function() {
+	// 	if (videolast.muted == false) {
+	// 		// Mute the videolast
+	// 		videolast.muted = true;
+
+	// 		// Update the button text
+	// 		muteButtonlast.style.display = "none";
+	// 		unmuteButtonlast.style.display = "inline";
+	// 		volumeBarlast.value = 0;
+	// 		videolast.volume = 0;
+	// 	}
+	// });
+
+	// unmuteButtonlast.addEventListener("click", function() {
+	// 	if (videolast.muted == true) {
+	// 		videolast.muted = false;
+	// 		muteButtonlast.style.display = "inline";
+	// 		unmuteButtonlast.style.display = "none";
+	// 		volumeBarlast.value = videolast.volume;
+	// 	}
+	// });
+
+
+
+
+	// // Event listener for the full-screen button
+	// fullScreenButtonlast.addEventListener("click", function() {
+	// 	if (videolast.requestFullscreen) {
+	// 		videolast.requestFullscreen();
+	// 	} else if (videolast.mozRequestFullScreen) {
+	// 		videolast.mozRequestFullScreen(); // Firefox
+	// 	} else if (videolast.webkitRequestFullscreen) {
+	// 		videolast.webkitRequestFullscreen(); // Chrome and Safari
+	// 	}
+	// });
+
+
+	// // Event listener for the seek bar
+	// seekBarlast.addEventListener("change", function() {
+	// 	// Calculate the new time
+	// 	var time = videolast.duration * (seekBarlast.value / 100);
+
+	// 	// Update the videolast time
+	// 	videolast.currentTime = time;
+	// });
+
+	
+	// // Update the seek bar as the videolast plays
+	// videolast.addEventListener("timeupdate", function() {
+	// 	// Calculate the slider value
+	// 	var value = (100 / videolast.duration) * videolast.currentTime;
+
+	// 	// Update the slider value
+	// 	seekBarlast.value = value;
+	// });
+
+	// // Pause the videolast when the seek handle is being dragged
+	// seekBarlast.addEventListener("mousedown", function() {
+	// 	videolast.pause();
+	// });
+
+	// // Play the videolast when the seek handle is dropped
+	// seekBarlast.addEventListener("mouseup", function() {
+	// 	videolast.play();
+	
+	// 	playButtonlast.style.display = "none";
+	// 	pauseButtonlast.style.display = "inline";
+		
+	// });
+
+	// // Event listener for the volume bar
+	// volumeBarlast.addEventListener("change", function() {
+	// 	// Update the videolast volume
+	// 	videolast.volume = volumeBarlast.value;
+	// 	if(videolast.muted == true) {
+	// 		videolast.muted = false;
+	// 		muteButtonlast.style.display = "inline";
+	// 		unmuteButtonlast.style.display = "none";
+	// 	}
+	// });
+
+
 	let right = document.getElementById('right');
+	let right2 = document.getElementById("right2");
 	let choice = document.getElementById("choice");
+	let calendarpage = document.getElementById("calendar");
+	let left2 = document.getElementById("left2");
 
 	right.addEventListener('click', () => {
 		choice.style.zIndex = "-1";
@@ -540,17 +681,28 @@ window.onload = function() {
 		choice.style.zIndex = "19";
 	})
 
+	right2.addEventListener("click", () => {
+		calendarpage.style.zIndex = "-1";
+	})
+
+	left2.addEventListener("click", () => {
+		calendarpage.style.zIndex = "10";
+	})
 
 	let mutee = document.getElementById("mutee");
 	let unmutee = document.getElementById("unmutee");
 	let mutee2 = document.getElementById("mutee2");
 	let unmutee2 = document.getElementById("unmutee2");
+	let mutee3 = document.getElementById("mutee3");
+	let unmutee3 = document.getElementById("unmutee3");
 	
 	mutee.addEventListener("click", () => {
 		mutee.style.display = "none";
 		unmutee.style.display = "inline";
 		mutee2.style.display = "none";
 		unmutee2.style.display = "inline";
+		mutee3.style.display = "none";
+		unmutee3.style.display = "inline";
 		backgroundmusic.volume = 0;
 		backgroundmusic.pause();
 	})
@@ -560,20 +712,33 @@ window.onload = function() {
 		unmutee.style.display = "inline";
 		mutee2.style.display = "none";
 		unmutee2.style.display = "inline";
+		mutee3.style.display = "none";
+		unmutee3.style.display = "inline";
+		backgroundmusic.volume = 0;
+		backgroundmusic.pause();
+	})
+	mutee3.addEventListener("click", () => {
+		mutee.style.display = "none";
+		unmutee.style.display = "inline";
+		mutee2.style.display = "none";
+		unmutee2.style.display = "inline";
+		mutee3.style.display = "none";
+		unmutee3.style.display = "inline";
 		backgroundmusic.volume = 0;
 		backgroundmusic.pause();
 	})
 
-	// console.log("yes3");
+	
 	unmutee.addEventListener("click", () => {
 		// console.log("yes4");
 		mutee.style.display = "inline";
 		unmutee.style.display = "none";
 		mutee2.style.display = "inline";
 		unmutee2.style.display = "none";
+		mutee3.style.display = "inline";
+		unmutee3.style.display = "none";
 		backgroundmusic.volume = 0.02;
 		backgroundmusic.play();
-		console.log("yes4");
 	})
 
 	unmutee2.addEventListener("click", () => {
@@ -582,9 +747,22 @@ window.onload = function() {
 		unmutee.style.display = "none";
 		mutee2.style.display = "inline";
 		unmutee2.style.display = "none";
+		mutee3.style.display = "inline";
+		unmutee3.style.display = "none";
 		backgroundmusic.volume = 0.02;
 		backgroundmusic.play();
-		console.log("yes4");
+	})
+
+	unmutee3.addEventListener("click", () => {
+		// console.log("yes4");
+		mutee.style.display = "inline";
+		unmutee.style.display = "none";
+		mutee2.style.display = "inline";
+		unmutee2.style.display = "none";
+		mutee3.style.display = "inline";
+		unmutee3.style.display = "none";
+		backgroundmusic.volume = 0.02;
+		backgroundmusic.play();
 	})
 };
 

@@ -24,7 +24,7 @@
 
 	<section id="video-container1">
 		<video class="video" id="videostart" preload="metadata">
-			<source src="30mmf2.mp4" type="video/mp4"></source>
+			<source src="intro.mp4" type="video/mp4"></source>
 		</video>
 
 	</section>
@@ -39,8 +39,8 @@
 				<p class="words1">Step 1</p>
 				<div class="step1show" id="clicktowatch" style="display: none;" >
 					<section id="video-container">
-						<video class="video" id="video1" preload="metadata" poster="poster.jpeg">
-							<source src="30mff.mp4" type="video/mp4"></source>
+						<video class="video" id="video1" preload="metadata" poster="step1.jpg">
+							<source src="step1.mp4" type="video/mp4"></source>
 						</video>
 				
 						<div id="video-controls">
@@ -62,7 +62,7 @@
 					</section>
 				</div>
 				<div class="step1show" id="description" style="display: none;">
-					Attend zoom classes on time and participate actively
+					Plan everything on google calendar
 				</div>
 				<div class="step1show" id="closeButton1" style="display: none;" >
 					<div class="line" style="transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, 0, 0); top: 0px; left: 3px; transform-origin: left top 0px;"></div>
@@ -73,8 +73,8 @@
 				<p class="words2">Step 2</p>
 				<div class="step2show" id="clicktowatch" style="display: none;" >
 					<section id="video-container">
-						<video class="video" id="video2" preload="metadata" poster="poster.jpeg">
-							<source src="parasite.mp4" type="video/mp4"></source>
+						<video class="video" id="video2" preload="metadata" poster="step2.jpg">
+							<source src="step2.mp4" type="video/mp4"></source>
 						</video>
 				
 						<div id="video-controls">
@@ -96,7 +96,7 @@
 					</section>
 				</div>
 				<div class="step2show" id="description" style="display: none;">
-					Start assignments *3 weeks* from the due date
+					Attend zoom classes on time and participate actively
 				</div>
 				<div class="step2show" id="closeButton2" style="display: none;" >
 					<div class="line" style="transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, 0, 0); top: 0px; left: 3px; transform-origin: left top 0px;"></div>
@@ -107,8 +107,8 @@
 				<p class="words3">Step 3</p>
 				<div class="step3show" id="clicktowatch" style="display: none;" >
 					<section id="video-container">
-						<video class="video" id="video3" preload="metadata" poster="poster.jpeg">
-							<source src="30mff.mp4" type="video/mp4"></source>
+						<video class="video" id="video3" preload="metadata" poster="step3.jpg">
+							<source src="step3.mp4" type="video/mp4"></source>
 						</video>
 				
 						<div id="video-controls">
@@ -130,7 +130,7 @@
 					</section>
 				</div>
 				<div class="step3show" id="description" style="display: none;">
-					Plan everything on google calendar
+					Start assignments early
 				</div>
 				<div class="step3show" id="closeButton3" style="display: none;" >
 					<div class="line" style="transform: matrix(0.7071, 0.7071, -0.7071, 0.7071, 0, 0); top: 0px; left: 3px; transform-origin: left top 0px;"></div>
@@ -146,13 +146,13 @@
 
 	<section id="calendar">
 		<span class="iconify" id="left" data-icon="akar-icons:circle-chevron-left-fill" data-inline="false"></span>
-		
+		<span class="iconify" id="right2" data-icon="akar-icons:circle-chevron-right-fill" data-inline="false"></span>
 		<span class="iconify" id="mutee2" data-title = "Mute(m)" data-icon="bx-bxs-volume-full"></span>
 		<span class="iconify" id="unmutee2" data-title = "Unmute(k)" data-icon="bx:bxs-volume-mute"></span>
 
-		<!-- <div class="calendar"> -->
+		<div style="position: absolute;top: 21%;left:8%;width: 21vw; font-size: 26px; color: darkblue;">Now think about how would you arrange your calendar in order to survive online school?</div>
+		<div style="position: absolute;top: 70%;right:9%;width: 19vw; font-size: 26px; color: lightblue;">Can you now stick to that specific day you made?</div>
 		<section class="tasks">
-			<!-- <h1 class="tasks__title">To do list</h1> -->
 			
 			<div class="tasks__list">
 				<img src="wakeup.png" class = "tasks__item hi first" id="draggg" draggable="true" >
@@ -182,6 +182,38 @@
 			<div class="calendar_time" style="color: white;">21:00</div>
 		</div>
 		
+		
+	</section>
+
+	<section id="bloopers">
+		<span class="iconify" id="left2" data-icon="akar-icons:circle-chevron-left-fill" data-inline="false"></span>
+		
+		<span class="iconify" id="mutee3" data-title = "Mute(m)" data-icon="bx-bxs-volume-full"></span>
+		<span class="iconify" id="unmutee3" data-title = "Unmute(k)" data-icon="bx:bxs-volume-mute"></span>
+
+		<h1 style="font-size: 2em; position: absolute; top: 0;">Bloopers</h1>
+		<section id="video-containerlast">
+			<video controls class="video" id="videolast" preload="metadata" >
+				<source src="bloopers.mp4" type="video/mp4"></source>
+			</video>
+	
+			<!-- <div id="video-controls">
+				
+				<input type="range" id="seek-barlast" value="0" style="color: brown;">
+				<div class="check">
+					<div> 
+						<span class="iconify" data-title = "Play(k)" data-icon="akar-icons:play"  id="playlast" style="display: inline;"></span>
+						<span class="iconify" data-title = "Pause(k)" data-icon="akar-icons:pause"  id="pauselast" style="display: none;"></span>
+						<span class="iconify" data-title = "Mute(m)" data-icon="bx-bxs-volume-full"  id="tomutelast" style="display: inline;"></span>
+						<span class="iconify" data-title = "Play(k)" data-icon="bx:bxs-volume-mute"  id="mutedlast" style="display: none;"></span>
+						
+						<input type="range" id="volume-barlast" min="0" max="1" step="0.1" value="1">
+					</div>
+					<span class="iconify" data-icon="bx:bx-fullscreen"  id="full-screenlast"></span>
+				</div>
+			</div>
+	 -->
+		</section>
 		
 	</section>
 

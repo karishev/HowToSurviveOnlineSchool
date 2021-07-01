@@ -1,9 +1,15 @@
+@font-face {
+	font-family: Elite;
+	src: url("SpecialElite-Regular.ttf");
+}
+
+
 body {
 	margin: 0;
 	overflow-y: hidden;
 	overflow-x: hidden;
 	background-image: url(back.jpg);
-	font-family: 'Special Elite', cursive;
+	font-family: 'Special Elite', cursive, Elite;
 }
 
 .title {
@@ -58,7 +64,7 @@ h1{
 	z-index: 18;
 }
 
-#mutee, #mutee2 {
+#mutee, #mutee2 , #mutee3 {
 	color:#207794; 
 	display: inline; 
 	position: absolute; 
@@ -69,7 +75,7 @@ h1{
 	z-index: 19;
 }
 
-#unmutee, #unmutee2 {
+#unmutee, #unmutee2, #unmutee3 {
 	color:#207794;
 	display: none; 
 	position: absolute; 
@@ -89,7 +95,8 @@ h1{
 	justify-content: center;
 	align-items: center;
 	transition: all 1s ease;
-	font-family: 'Special Elite', cursive;
+	/* font-family: 'Special Elite', cursive; */
+	border-radius: 10px;
 }
 
 .step1:hover, .step2:hover, .step3:hover {
@@ -290,7 +297,7 @@ button {
     margin-left: -8px;
 }
 
-#right {
+#right, #right2 {
 	color:#207794; 
 	display: inline; 
 	position: absolute; 
@@ -301,7 +308,7 @@ button {
 	z-index: 19;
 }
 
-#left {
+#left, #left2{
 	color:#207794; 
 	display: inline; 
 	position: absolute; 
@@ -354,7 +361,7 @@ button {
 	/* grid-auto-rows: 100px; */
 	align-items: center;
 	text-align: right;
-	border: 1px solid #e1e1e1;
+	/* border: 1px solid #e1e1e1; */
 	/* grid-gap: 15%;  */
 }
 
@@ -362,7 +369,7 @@ button {
 	height: 13vh;
 	width: 24vw;
 	/* border-right: 1px solid #e1e1e1; */
-  	border-top: 1px solid #e1e1e1;
+  	/* border-top: 1px solid #e1e1e1; */
 }
 
 
@@ -424,3 +431,56 @@ button {
 .selected {
 	opacity: 0.6;
 }
+
+#bloopers {
+	background-image: url(back3.jpg);
+	background-size: 100%;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all 1.5s ease;
+	opacity: 1;
+	z-index: 9;
+}
+
+#video-containerlast {
+	
+	width: 100vw;
+	height: 100vh;
+	/* background-image: url(back3.jpg); */
+	/* background-size: 100%; */
+	position: relative;
+	transition: all 1.5s ease;
+	opacity: 1;
+	z-index: 9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#videolast {
+	width: 50%;
+	transition: all 1.5s ease;
+}
+/* 
+
+#seek-barlast{
+	width: 100%;
+	margin: 0;
+}
+
+#volume-barlast{
+	width: 50%;
+	margin: 0;
+}
+#full-screenlast  {
+	margin-right: 10px;
+}
+
+#playlast, #pauselast {
+	margin-right: 10px;
+}  */
