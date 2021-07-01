@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	let title = document.querySelector('.title');
 	title.addEventListener('click', () => {
 		title.classList.add('fade');
-		document.querySelector('.draggable').style.display = "flex";
+		// document.querySelector('.draggable').style.display = "flex";
 		// enableScroll();
 		setTimeout(() => {
 			title.remove();
@@ -22,147 +22,102 @@ videostart.addEventListener("timeupdate", () => {
 		videostart.classList.add('fade');
 		setTimeout(() => {
 			document.getElementById("video-container1").remove();
-			
-			// backgroundmusic.play();
-			// backgroundmusic.volume = 0.02;
+
+			backgroundmusic.play();
+			backgroundmusic.volume = 0.02;
 		}, 1000);
 	}
 })
 
-// Make the DIV element draggable:
-dragElement(document.getElementById("mydiv"));
 
-function dragElement(elmnt) {
-	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-	if (document.getElementById(elmnt.id + "header")) {
-		// if present, the header is where you move the DIV from:
-		document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-	} else {
-		// otherwise, move the DIV from anywhere inside the DIV:
-		elmnt.onmousedown = dragMouseDown;
-	}
 
-	function dragMouseDown(e) {
-		e = e || window.event;
-		e.preventDefault();
-		// get the mouse cursor position at startup:
-		pos3 = e.clientX;
-		pos4 = e.clientY;
-		document.onmouseup = closeDragElement;
-		// call a function whenever the cursor moves:
-		document.onmousemove = elementDrag;
-	}
+const tasksListElement = document.querySelector(`.tasks__list`);
+const taskElements = tasksListElement.querySelectorAll(`.tasks__item`);
 
-	function elementDrag(e) {
-		e = e || window.event;
-		e.preventDefault();
-		// calculate the new cursor position:
-		pos1 = pos3 - e.clientX;
-		pos2 = pos4 - e.clientY;
-		pos3 = e.clientX;
-		pos4 = e.clientY;
-		// set the element's new position:
-		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-	}
-
-	function closeDragElement() {
-		// stop moving when mouse button is released:
-		document.onmouseup = null;
-		document.onmousemove = null;
-	}
+// Перебираем все элементы списка и присваиваем нужное значение
+for (const task of taskElements) {
+  task.draggable = true;
 }
 
-const d = document.getElementsByClassName("draggable");
+tasksListElement.addEventListener(`dragstart`, (evt) => {
+	evt.target.classList.add(`selected`);
+})
+  
+tasksListElement.addEventListener(`dragend`, (evt) => {
+	evt.target.classList.remove(`selected`);
+});
 
-for (let i = 0; i < d.length; i++) {
-	d[i].style.position = "relative";
-}
-
-function filter(e) {
-	let target = e.target;
-
-	if (!target.classList.contains("draggable")) {
+tasksListElement.addEventListener(`dragover`, (evt) => {
+	// Разрешаем сбрасывать элементы в эту область
+	evt.preventDefault();
+  
+	// Находим перемещаемый элемент
+	const activeElement = tasksListElement.querySelector(`.selected`);
+	// Находим элемент, над которым в данный момент находится курсор
+	const currentElement = evt.target;
+	// Проверяем, что событие сработало:
+	// 1. не на том элементе, который мы перемещаем,
+	// 2. именно на элементе списка
+	const isMoveable = activeElement !== currentElement &&
+	  currentElement.classList.contains(`tasks__item`);
+  
+	// Если нет, прерываем выполнение функции
+	if (!isMoveable) {
 		return;
 	}
-
-	target.moving = true;
-	target.oldX = e.clientX;
-	target.oldY = e.clientY;
-	// //NOTICE THIS 👇
-	// e.clientX ? // Check if Mouse events exist on user' device
-	// (target.oldX = e.clientX, // If they exist then use Mouse input
-	// target.oldY = e.clientY) :
-	// (target.oldX = e.touches[0].clientX, // otherwise use touch input
-	// target.oldY = e.touches[0].clientY)
-	// //NOTICE THIS 👆 Since there can be multiple touches, you need to mention which touch to look for, we are using the first touch only in this case
-
-	target.oldLeft = window.getComputedStyle(target).getPropertyValue('left').split('px')[0] * 1;
-	target.oldTop = window.getComputedStyle(target).getPropertyValue('top').split('px')[0] * 1;
-
-	document.onmousemove = dr;
-	// //NOTICE THIS 👇
-	// document.ontouchmove = dr;
-	// //NOTICE THIS 👆
-
-	function dr(event) {
-		event.preventDefault();
-
-		if (!target.moving) {
-			return;
-		}
-		target.distX = event.clientX - target.oldX;
-		target.distY = event.clientY - target.oldY;
-	// //NOTICE THIS 👇
-	// 	event.clientX ?
-	// 	(target.distX = event.clientX - target.oldX,
-	// 	target.distY = event.clientY - target.oldY) :
-	// 	(target.distX = event.touches[0].clientX - target.oldX,
-	// 	target.distY = event.touches[0].clientY - target.oldY)
-	// //NOTICE THIS 👆
-
-		target.style.left = target.oldLeft + target.distX + "px";
-		target.style.top = target.oldTop + target.distY + "px";
-	}
-
-	function endDrag() {
-		target.moving = false;
-		// if(target===)
-	}
-	target.onmouseup = endDrag;
-	// //NOTICE THIS 👇
-	// target.ontouchend = endDrag;
-	// //NOTICE THIS 👆
-
-}
-
-document.onmousedown = filter;
-
-function drag(ev) {
-	ev.dataTransfer.setData("text", ev.target.id);
-}
-// 	//NOTICE THIS 👇
-// document.ontouchstart = filter;
-// 	//NOTICE THIS 👆
-
-function allowDrop(ev) {
-	ev.preventDefault();
-}
-// function drop(ev) {
-// 	ev.preventDefault();
-// 	var data = ev.dataTransfer.getData("text");
-// 	ev.target.appendChild(document.getElementById(data));
-// }
-function drag(ev) {
-	ev.dataTransfer.setData("text", ev.target.id);
-}
   
-function drop(ev) {
-	ev.preventDefault();
-	var data = ev.dataTransfer.getData("text");
-	ev.target.appendChild(document.getElementById(data));
-}
+	// Находим элемент, перед которым будем вставлять
+	const nextElement = (currentElement === activeElement.nextElementSibling) ?
+		currentElement.nextElementSibling :
+		currentElement;
+  
+	// Вставляем activeElement перед nextElement
+	tasksListElement.insertBefore(activeElement, nextElement);
+});
 
+const getNextElement = (cursorPosition, currentElement) => {
+	// Получаем объект с размерами и координатами
+	const currentElementCoord = currentElement.getBoundingClientRect();
+	// Находим вертикальную координату центра текущего элемента
+	const currentElementCenter = currentElementCoord.y + currentElementCoord.height / 2;
+  
+	// Если курсор выше центра элемента, возвращаем текущий элемент
+	// В ином случае — следующий DOM-элемент
+	const nextElement = (cursorPosition < currentElementCenter) ?
+		currentElement :
+		currentElement.nextElementSibling;
+  
+	return nextElement;
+};
+
+tasksListElement.addEventListener(`dragover`, (evt) => {
+	evt.preventDefault();
+  
+	const activeElement = tasksListElement.querySelector(`.selected`);
+	const currentElement = evt.target;
+	const isMoveable = activeElement !== currentElement &&
+	  currentElement.classList.contains(`tasks__item`);
+  
+	if (!isMoveable) {
+	  return;
+	}
+  
+	// evt.clientY — вертикальная координата курсора в момент,
+	// когда сработало событие
+	const nextElement = getNextElement(evt.clientY, currentElement);
+  
+	// Проверяем, нужно ли менять элементы местами
+	if (
+		nextElement && 
+		activeElement === nextElement.previousElementSibling ||
+		activeElement === nextElement
+	) {
+	  // Если нет, выходим из функции, чтобы избежать лишних изменений в DOM
+	  return;
+	}
+  
+	tasksListElement.insertBefore(activeElement, nextElement);
+});
 
 let backgroundmusic = document.getElementById('backgroundmusic');
 backgroundmusic.volume = 0.02;
@@ -572,30 +527,67 @@ window.onload = function() {
 			unmuteButton3.style.display = "none";
 		}
 	});
+
+	
+	let right = document.getElementById('right');
+	let choice = document.getElementById("choice");
+
+	right.addEventListener('click', () => {
+		choice.style.zIndex = "-1";
+	})
+
+	left.addEventListener('click', () => {
+		choice.style.zIndex = "19";
+	})
+
+
+	let mutee = document.getElementById("mutee");
+	let unmutee = document.getElementById("unmutee");
+	let mutee2 = document.getElementById("mutee2");
+	let unmutee2 = document.getElementById("unmutee2");
+	
+	mutee.addEventListener("click", () => {
+		mutee.style.display = "none";
+		unmutee.style.display = "inline";
+		mutee2.style.display = "none";
+		unmutee2.style.display = "inline";
+		backgroundmusic.volume = 0;
+		backgroundmusic.pause();
+	})
+
+	mutee2.addEventListener("click", () => {
+		mutee.style.display = "none";
+		unmutee.style.display = "inline";
+		mutee2.style.display = "none";
+		unmutee2.style.display = "inline";
+		backgroundmusic.volume = 0;
+		backgroundmusic.pause();
+	})
+
+	// console.log("yes3");
+	unmutee.addEventListener("click", () => {
+		// console.log("yes4");
+		mutee.style.display = "inline";
+		unmutee.style.display = "none";
+		mutee2.style.display = "inline";
+		unmutee2.style.display = "none";
+		backgroundmusic.volume = 0.02;
+		backgroundmusic.play();
+		console.log("yes4");
+	})
+
+	unmutee2.addEventListener("click", () => {
+		// console.log("yes4");
+		mutee.style.display = "inline";
+		unmutee.style.display = "none";
+		mutee2.style.display = "inline";
+		unmutee2.style.display = "none";
+		backgroundmusic.volume = 0.02;
+		backgroundmusic.play();
+		console.log("yes4");
+	})
 };
 
-let mutee = document.getElementById("mutee");
-let unmutee = document.getElementById("unmutee");
-
-
-console.log("yes1");
-mutee.addEventListener("click", () => {
-	mutee.style.display = "none";
-	unmutee.style.display = "inline";
-	backgroundmusic.volume = 0;
-	backgroundmusic.pause();
-	console.log("yes2");
-})
-
-// console.log("yes3");
-unmutee.addEventListener("click", () => {
-	// console.log("yes4");
-	mutee.style.display = "inline";
-	unmutee.style.display = "none";
-	backgroundmusic.volume = 0.02;
-	backgroundmusic.play();
-	console.log("yes4");
-})
 
 
 
