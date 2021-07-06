@@ -151,8 +151,8 @@ h1{
 #video-container1 {
 	width: 100vw;
 	height: 100vh;
-	/* background-image: url(back3.jpg); */
-	/* background-size: 100%; */
+	background-image: url(back3.jpg);
+	background-size: 100%;
 	position: fixed;
 	transition: all 1.5s ease;
 	opacity: 1;
